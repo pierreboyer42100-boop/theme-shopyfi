@@ -1,0 +1,35 @@
+{%- comment -%}Template page générique avec blocs spéciaux pour À propos et FAQ{%- endcomment -%}
+<section class="page-content" aria-labelledby="page-title">
+  <div class="container narrow">
+    <h1 id="page-title">{{ page.title }}</h1>
+    <div class="page-richtext rte">
+      {{ page.content }}
+    </div>
+    {% if page.handle == 'a-propos' %}
+      {% section 'about-section' %}
+    {% endif %}
+    {% if page.handle == 'faq' %}
+      <div class="faq-wrapper" aria-labelledby="faq-title">
+        <h2 id="faq-title">Vos questions, notre feu apaisant</h2>
+        <div class="faq-items">
+          <details open>
+            <summary>Sécurité : Flame Box est-elle sans danger ?</summary>
+            <p>Chaque Flame Box est équipée d'un brûleur sécurisé, d'une base isolante et d'un coupe-flamme instantané pour une expérience sereine.</p>
+          </details>
+          <details>
+            <summary>Quelle est la durée de la flamme ?</summary>
+            <p>Un réservoir plein offre jusqu'à 3 heures de flamme douce et constante, idéale pour un rituel du soir.</p>
+          </details>
+          <details>
+            <summary>Comment entretenir ma Flame Box ?</summary>
+            <p>Un nettoyage doux du vitrage et un remplissage avec notre bioéthanol premium suffisent pour conserver toute sa clarté.</p>
+          </details>
+          <details>
+            <summary>Quels sont les délais de livraison ?</summary>
+            <p>La Flame Box est expédiée en 24h et livrée sous 2 à 4 jours ouvrés avec suivi offert.</p>
+          </details>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>

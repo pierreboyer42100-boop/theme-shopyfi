@@ -1,0 +1,12 @@
+{%- comment -%}Boutons arrondis à l’effet chaleureux{%- endcomment -%}
+{% assign button_classes = 'btn' %}
+{% if button_style == 'primary' %}
+  {% assign button_classes = button_classes | append: ' btn-primary' %}
+{% elsif button_style == 'ghost' %}
+  {% assign button_classes = button_classes | append: ' btn-ghost' %}
+{% endif %}
+{% if button_type == 'submit' %}
+  <button type="submit" class="{{ button_classes }}">{{ button_text }}</button>
+{% else %}
+  <a href="{{ button_link | default: '#' }}" class="{{ button_classes }}">{{ button_text }}</a>
+{% endif %}

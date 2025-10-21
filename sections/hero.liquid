@@ -1,0 +1,78 @@
+{%- comment -%}Section hero modulable pour Flame Box{%- endcomment -%}
+{% assign eyebrow = section.settings.hero_eyebrow | default: settings.hero_eyebrow %}
+{% assign heading = section.settings.hero_heading | default: settings.hero_heading %}
+{% assign text = section.settings.hero_text | default: settings.hero_text %}
+{% assign cta_text = section.settings.hero_cta_text | default: settings.hero_cta_text %}
+{% assign cta_link = section.settings.hero_cta_link | default: settings.hero_cta_link %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">{{ eyebrow }}</p>
+      <h1 id="hero-title">{{ heading }}</h1>
+      <p class="hero-text">{{ text }}</p>
+      {% render 'buttons',
+        button_text: cta_text,
+        button_link: cta_link,
+        button_style: 'primary'
+      %}
+    </div>
+    {% if section.settings.hero_image != blank %}
+      <div class="hero-visual">
+        <img src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="{{ section.settings.hero_image_alt | default: heading }}">
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero Flame Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Texte d'accroche",
+      "default": "Apprivoisez le feu"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_heading",
+      "label": "Titre principal",
+      "default": "Apprivoisez le feu, ressentez la paix."
+    },
+    {
+      "type": "textarea",
+      "id": "hero_text",
+      "label": "Description",
+      "default": "Flame Box diffuse une flamme hypnotique et maîtrisée qui transforme chaque pièce en refuge sensoriel."
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_text",
+      "label": "Texte du bouton CTA",
+      "default": "Découvrir la Flame Box"
+    },
+    {
+      "type": "url",
+      "id": "hero_cta_link",
+      "label": "Lien du CTA",
+      "default": "/collections/tous-les-produits"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image du hero"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_alt",
+      "label": "Texte alternatif de l'image",
+      "default": "Flame Box en action"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Flame Box"
+    }
+  ]
+}
+{% endschema %}

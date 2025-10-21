@@ -1,0 +1,51 @@
+{%- comment -%}Entête principal avec navigation et promo{%- endcomment -%}
+{% assign menu_handle = section.settings.menu | default: 'main-menu' %}
+{% assign menu = linklists[menu_handle] %}
+<header class="site-header" role="banner">
+  <div class="promo-bar" role="note">{{ settings.promo_banner_text }}</div>
+  <div class="container header-inner">
+    <div class="logo-area">
+      {% if settings.logo != blank %}
+        <a href="/" class="logo-link">
+          <img src="{{ settings.logo | image_url: width: 220 }}" alt="{{ shop.name }}" class="site-logo">
+        </a>
+      {% else %}
+        <a href="/" class="logo-text">{{ shop.name }}</a>
+      {% endif %}
+    </div>
+    <nav class="main-navigation" role="navigation" aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="MainNav">☰</button>
+      <ul id="MainNav" class="nav-list">
+        {% if menu and menu.links.size > 0 %}
+          {% for link in menu.links %}
+            <li class="nav-item">
+              <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="cart-link" href="/cart" aria-label="Voir le panier">🛒</a>
+      <a class="account-link" href="/account" aria-label="Mon compte">👤</a>
+    </div>
+  </div>
+</header>
+{% schema %}
+{
+  "name": "Entête Flame Box",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu principal",
+      "default": "main-menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Entête Flame Box"
+    }
+  ]
+}
+{% endschema %}

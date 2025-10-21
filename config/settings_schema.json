@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Identité Flame Box",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo principal"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "text",
+        "id": "promo_banner_text",
+        "label": "Texte de la bannière promo",
+        "default": "Livraison gratuite – Offre d’automne 🔥"
+      }
+    ]
+  },
+  {
+    "name": "Palette & Typographie",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Couleur de fond",
+        "default": "#070402"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Couleur du texte",
+        "default": "#f6f1ed"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Couleur accent",
+        "default": "#ff6a1a"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_primary",
+        "label": "Police principale",
+        "default": "poppins_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_secondary",
+        "label": "Police secondaire",
+        "default": "montserrat_n6"
+      }
+    ]
+  },
+  {
+    "name": "Hero & CTA",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_eyebrow",
+        "label": "Texte d'accroche",
+        "default": "Apprivoisez le feu"
+      },
+      {
+        "type": "textarea",
+        "id": "hero_heading",
+        "label": "Titre Hero",
+        "default": "Apprivoisez le feu, ressentez la paix."
+      },
+      {
+        "type": "textarea",
+        "id": "hero_text",
+        "label": "Texte Hero",
+        "default": "Flame Box diffuse une flamme douce qui invite à la détente et à la contemplation."
+      },
+      {
+        "type": "text",
+        "id": "hero_cta_text",
+        "label": "Texte du bouton Hero",
+        "default": "Découvrir la Flame Box"
+      },
+      {
+        "type": "url",
+        "id": "hero_cta_link",
+        "label": "Lien du bouton Hero",
+        "default": "/products/flame-box"
+      },
+      {
+        "type": "text",
+        "id": "final_cta_text",
+        "label": "Texte du bouton final",
+        "default": "Commander maintenant"
+      },
+      {
+        "type": "url",
+        "id": "final_cta_link",
+        "label": "Lien du bouton final",
+        "default": "/cart"
+      }
+    ]
+  },
+  {
+    "name": "Réseaux sociaux",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      }
+    ]
+  }
+]

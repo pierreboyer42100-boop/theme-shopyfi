@@ -1,0 +1,73 @@
+{%- comment -%}Avis clients Flame Box{%- endcomment -%}
+<section class="testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <h2 id="testimonials-title">{{ section.settings.heading }}</h2>
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <figure class="testimonial-card" {{ block.shopify_attributes }}>
+          <blockquote>“{{ block.settings.quote }}”</blockquote>
+          <figcaption>
+            <span class="testimonial-name">{{ block.settings.name }}</span>
+            <span class="testimonial-role">{{ block.settings.role }}</span>
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Témoignages Flame Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Ils ont apprivoisé la flamme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Témoignage",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Citation",
+          "default": "Une expérience sensorielle qui change l'ambiance de la maison."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nom",
+          "default": "Camille"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Rôle ou localisation",
+          "default": "Designer d'intérieur"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Témoignages Flame Box",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

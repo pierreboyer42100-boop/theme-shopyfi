@@ -1,0 +1,33 @@
+{%- comment -%}Page contact sensorielle pour Flame Box{%- endcomment -%}
+<section class="contact-page" aria-labelledby="contact-title">
+  <div class="container contact-grid">
+    <div>
+      <h1 id="contact-title">Contact Flame Box</h1>
+      <p>Parlez-nous de votre rituel de détente idéal. Nous répondons sous 24h pour faire vibrer votre intérieur.</p>
+      <ul class="contact-socials">
+        {% render 'social-links' %}
+      </ul>
+    </div>
+    <div>
+      {% form 'contact' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <p class="form-success">Merci ! Votre message a bien été reçu.</p>
+        {% endif %}
+        <div class="form-field">
+          <label for="ContactName">Nom</label>
+          <input type="text" id="ContactName" name="contact[name]" required>
+        </div>
+        <div class="form-field">
+          <label for="ContactEmail">Email</label>
+          <input type="email" id="ContactEmail" name="contact[email]" required>
+        </div>
+        <div class="form-field">
+          <label for="ContactMessage">Message</label>
+          <textarea id="ContactMessage" name="contact[body]" rows="5" required></textarea>
+        </div>
+        {% render 'buttons', button_text: 'Envoyer', button_style: 'primary', button_type: 'submit' %}
+      {% endform %}
+    </div>
+  </div>
+</section>

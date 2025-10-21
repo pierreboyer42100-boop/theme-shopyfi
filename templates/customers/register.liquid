@@ -1,0 +1,27 @@
+{%- comment -%}Formulaire d’inscription client Flame Box{%- endcomment -%}
+<section class="account-section" aria-labelledby="register-title">
+  <div class="container narrow">
+    <h1 id="register-title">Créer un compte Flame Box</h1>
+    <p>Un instant de feu pour apaiser l'esprit commence par un espace client dédié.</p>
+    {% form 'create_customer' %}
+      {{ form.errors | default_errors }}
+      <div class="form-field">
+        <label for="RegisterFirstName">Prénom</label>
+        <input type="text" id="RegisterFirstName" name="customer[first_name]" value="{{ form.first_name }}" autocomplete="given-name" required>
+      </div>
+      <div class="form-field">
+        <label for="RegisterLastName">Nom</label>
+        <input type="text" id="RegisterLastName" name="customer[last_name]" value="{{ form.last_name }}" autocomplete="family-name" required>
+      </div>
+      <div class="form-field">
+        <label for="RegisterEmail">Email</label>
+        <input type="email" id="RegisterEmail" name="customer[email]" value="{{ form.email }}" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="RegisterPassword">Mot de passe</label>
+        <input type="password" id="RegisterPassword" name="customer[password]" required>
+      </div>
+      {% render 'buttons', button_text: 'Créer mon compte', button_style: 'primary', button_type: 'submit' %}
+    {% endform %}
+  </div>
+</section>

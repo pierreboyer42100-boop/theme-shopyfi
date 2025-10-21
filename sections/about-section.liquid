@@ -1,0 +1,73 @@
+{%- comment -%}Narration de la marque Flame Box{%- endcomment -%}
+<section class="about-section" aria-labelledby="about-title">
+  <div class="container">
+    <h2 id="about-title">{{ section.settings.heading }}</h2>
+    <div class="about-content">
+      <p>{{ section.settings.intro_text }}</p>
+      <div class="about-pillars">
+        {% for block in section.blocks %}
+          <article class="pillar" {{ block.shopify_attributes }}>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "À propos Flame Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Le feu comme thérapie moderne"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Texte introductif",
+      "default": "Depuis nos ateliers, nous sculptons des flammes douces et hypnotiques pour vous offrir un moment de calme absolu."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pilier",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Design chaleureux"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Chaque Flame Box est fabriquée avec des matériaux nobles aux reflets cuivrés."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "À propos Flame Box",
+      "blocks": [
+        {
+          "type": "pillar"
+        },
+        {
+          "type": "pillar"
+        },
+        {
+          "type": "pillar"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

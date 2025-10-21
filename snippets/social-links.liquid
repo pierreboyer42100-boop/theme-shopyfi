@@ -1,0 +1,11 @@
+{%- comment -%}Liens sociaux configurables du thème{%- endcomment -%}
+{% assign platforms = 'facebook,instagram,youtube,tiktok' | split: ',' %}
+{% for platform in platforms %}
+  {% assign setting_id = 'social_' | append: platform %}
+  {% assign url = settings[setting_id] %}
+  {% if url != blank %}
+    <li class="social-link social-{{ platform }}">
+      <a href="{{ url }}" target="_blank" rel="noopener">{{ platform | capitalize }}</a>
+    </li>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,69 @@
+{%- comment -%}Pied de page chaleureux avec CTA{%- endcomment -%}
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div>
+      <h2 class="footer-title">{{ section.settings.title }}</h2>
+      <p>{{ section.settings.subtitle }}</p>
+      {% render 'buttons', button_text: section.settings.footer_cta_text, button_link: section.settings.footer_cta_link, button_style: 'ghost' %}
+    </div>
+    <div>
+      <h3>Navigation</h3>
+      <ul>
+        {% for link in linklists[section.settings.footer_menu].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h3>Suivez la flamme</h3>
+      <ul class="footer-socials">
+        {% render 'social-links' %}
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }} — Un feu pour apaiser l'esprit.</p>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Pied de page Flame Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Flame Box"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Texte",
+      "default": "Le feu, réinventé pour votre bien-être."
+    },
+    {
+      "type": "text",
+      "id": "footer_cta_text",
+      "label": "Texte CTA",
+      "default": "Commander maintenant"
+    },
+    {
+      "type": "url",
+      "id": "footer_cta_link",
+      "label": "Lien CTA",
+      "default": "/products/flame-box"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Menu de pied de page",
+      "default": "footer"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pied de page Flame Box"
+    }
+  ]
+}
+{% endschema %}
