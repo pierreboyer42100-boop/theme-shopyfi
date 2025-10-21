@@ -1,0 +1,27 @@
+{% assign items = section.settings.items | split: '\n' %}
+<section class="reassurance-bar" aria-label="Engagements SilverLink">
+  <ul class="reassurance-bar__list">
+    {% for item in items %}
+      <li class="reassurance-bar__item">{{ item | strip }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Barre de rassurance",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "items",
+      "label": "Éléments (un par ligne)",
+      "default": "Paiement sécurisé\nRetours 30 jours\nSAV français 7j/7\nLivraison 48-72h"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barre de rassurance"
+    }
+  ]
+}
+{% endschema %}

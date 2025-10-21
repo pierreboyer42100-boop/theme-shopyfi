@@ -1,0 +1,42 @@
+<section class="newsletter" aria-labelledby="NewsletterHeading-{{ section.id }}">
+  <div class="newsletter__content">
+    <h2 id="NewsletterHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.description }}</p>
+    <form method="post" action="/contact#newsletter" class="newsletter__form" data-newsletter-form>
+      <input type="hidden" name="form_type" value="customer">
+      <input type="hidden" name="utf8" value="✓">
+      <label class="sr-only" for="NewsletterEmail-{{ section.id }}">{{ 'general.labels.newsletter_email' | t }}</label>
+      <input id="NewsletterEmail-{{ section.id }}" class="input" type="email" name="contact[email]" required placeholder="{{ 'general.labels.newsletter_email' | t }}">
+      <label class="newsletter__consent">
+        <input type="checkbox" name="contact[accepts_marketing]" value="true" required>
+        <span>J'accepte de recevoir les communications SilverLink.</span>
+      </label>
+      <button class="btn btn--primary btn--xl" type="submit">{{ 'general.labels.subscribe' | t }}</button>
+    </form>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Recevez nos conseils bienveillants"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Conseils, tutoriels et offres pour rester connecté avec vos proches."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

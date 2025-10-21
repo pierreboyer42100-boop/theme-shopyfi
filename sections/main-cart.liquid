@@ -1,0 +1,54 @@
+<section class="cart" aria-labelledby="CartHeading">
+  <h1 id="CartHeading">{{ 'cart.title' | t }}</h1>
+  {% if cart.item_count == 0 %}
+    <p>{{ 'cart.empty' | t }}</p>
+  {% else %}
+    <form action="/cart" method="post" novalidate class="cart__form">
+      <table class="cart__table">
+        <thead>
+          <tr>
+            <th scope="col">Produit</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in cart.items %}
+          <tr>
+            <td>
+              <a href="{{ item.url }}">{{ item.product.title }}</a>
+              <p>{{ item.variant.title }}</p>
+            </td>
+            <td>
+              <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantité pour {{ item.product.title }}">
+            </td>
+            <td>{{ item.final_line_price | money_with_currency }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="cart__summary">
+        <p>{{ 'cart.subtotal' | t }} : {{ cart.total_price | money_with_currency }}</p>
+        {% if section.settings.show_shipping_note %}
+          <p class="cart__note">Livraison offerte dès 150€ et retours sous 30 jours.</p>
+        {% endif %}
+        <button class="btn btn--primary btn--xl" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
+        <button class="btn btn--secondary" type="submit" name="update">Mettre à jour</button>
+      </div>
+    </form>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Panier principal",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_shipping_note",
+      "label": "Afficher une note d'expédition",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,41 @@
+<section class="product-recommendations" aria-labelledby="ProductRecommendationsHeading-{{ section.id }}">
+  <div class="product-recommendations__header">
+    <h2 id="ProductRecommendationsHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="product-recommendations__grid" data-product-recommendations data-product-id="{{ product.id }}" data-section-id="{{ section.id }}"></div>
+</section>
+
+<script type="application/json" data-product-recommendations-config="{{ section.id }}">
+  {
+    "sectionId": "{{ section.id }}",
+    "limit": {{ section.settings.limit | default: 4 }}
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Recommandations produits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Vous aimerez aussi"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Nombre de produits",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recommandations produits"
+    }
+  ]
+}
+{% endschema %}

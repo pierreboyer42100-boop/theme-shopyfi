@@ -1,0 +1,32 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <img src="{{ settings.logo_image | default: 'logo.svg' | image_url: width: 180 }}" loading="lazy" alt="{{ shop.name }}">
+      <p>SilverLink – Assistance connectée pour seniors.</p>
+      <p class="site-footer__contact">
+        <span>{{ 'general.labels.phone' | t }} : <a href="tel:+33123456789">+33 1 23 45 67 89</a></span>
+        <span>{{ 'general.labels.email' | t }} : <a href="mailto:contact@silverlink.fr">contact@silverlink.fr</a></span>
+        <span>{{ 'general.labels.hours' | t }} : Lun-Dim 8h-20h</span>
+      </p>
+    </div>
+    <div class="site-footer__links">
+      <nav aria-label="Liens légaux">
+        <ul>
+          {% if settings.url_cgv %}<li><a href="{{ settings.url_cgv }}">Conditions générales de vente</a></li>{% endif %}
+          {% if settings.url_privacy %}<li><a href="{{ settings.url_privacy }}">Politique de confidentialité</a></li>{% endif %}
+          {% if settings.url_mentions %}<li><a href="{{ settings.url_mentions }}">Mentions légales</a></li>{% endif %}
+          {% if settings.url_returns %}<li><a href="{{ settings.url_returns }}">Politique de retours</a></li>{% endif %}
+        </ul>
+      </nav>
+      <p class="site-footer__notice">{{ settings.medical_notice | default: 'Information : ces produits ne remplacent pas un avis médical.' }}</p>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Tous droits réservés.</p>
+    <ul class="payment-icons">
+      <li>CB</li>
+      <li>Apple Pay</li>
+      <li>Google Pay</li>
+    </ul>
+  </div>
+</footer>

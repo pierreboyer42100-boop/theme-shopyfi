@@ -1,0 +1,30 @@
+{% liquid
+  assign logo = settings.logo_image | default: 'logo.svg'
+%}
+<header class="site-header{% if settings.enable_transparent_header %} site-header--floating{% endif %}" role="banner">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/" aria-label="{{ shop.name }}">
+      <img src="{{ logo | image_url: width: 200 }}" loading="lazy" alt="{{ shop.name }}" width="120" height="40">
+    </a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <button class="site-nav__toggle" aria-expanded="false" aria-controls="SiteNavMenu">
+        <span class="sr-only">Menu</span>
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="site-nav__menu" id="SiteNavMenu" role="menubar" aria-expanded="false">
+        <li role="none"><a role="menuitem" href="/collections" class="focus-outline">Catégories</a></li>
+        <li role="none"><a role="menuitem" href="/pages/aide" class="focus-outline">Aide &amp; contact</a></li>
+        <li role="none"><a role="menuitem" href="/pages/a-propos" class="focus-outline">À propos</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <a class="btn btn--assist" href="tel:+33123456789">Assistance</a>
+      <a class="site-header__icon" href="/search" aria-label="Recherche">
+        <span class="icon-search"></span>
+      </a>
+      <a class="site-header__icon" href="/cart" aria-label="Panier">
+        <span class="icon-cart"></span>
+      </a>
+    </div>
+  </div>
+</header>

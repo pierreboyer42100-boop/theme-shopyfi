@@ -1,0 +1,10 @@
+{% assign classes = 'btn btn--3d' %}
+{% if variant == 'primary' %}
+  {% assign classes = classes | append: ' btn--primary btn--xl' %}
+{% elsif variant == 'secondary' %}
+  {% assign classes = classes | append: ' btn--secondary btn--xl' %}
+{% endif %}
+<a href="{{ url | default: '#' }}" class="{{ classes }}" data-3d-button>
+  <span class="btn__label">{{ label }}</span>
+  <span class="btn__shadow" aria-hidden="true"></span>
+</a>

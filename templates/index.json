@@ -1,0 +1,159 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-3d",
+      "settings": {
+        "heading": "Restez connectés, en toute simplicité.",
+        "subheading": "Technologie rassurante et intuitive pour les seniors.",
+        "primary_label": "Découvrir les produits",
+        "primary_link": "/collections/tous-les-produits",
+        "secondary_label": "Assistance téléphonique",
+        "secondary_link": "tel:+33123456789"
+      }
+    },
+    "reassurance": {
+      "type": "reassurance-bar",
+      "settings": {
+        "items": "Paiement sécurisé\nRetours 30 jours\nSAV français 7j/7\nLivraison 48-72h"
+      }
+    },
+    "categories": {
+      "type": "category-tiles",
+      "settings": {
+        "heading": "Explorer par besoins"
+      }
+    },
+    "featuregrid": {
+      "type": "feature-grid",
+      "blocks": {
+        "simplicite": {
+          "type": "feature",
+          "settings": {
+            "title": "Interface ultra lisible",
+            "description": "Textes larges, boutons XL et navigation guidée pour une autonomie totale.",
+            "icon": "🦾"
+          }
+        },
+        "autonomie": {
+          "type": "feature",
+          "settings": {
+            "title": "Autonomie prolongée",
+            "description": "Batterie longue durée et alertes de charge intelligentes.",
+            "icon": "🔋"
+          }
+        },
+        "urgence": {
+          "type": "feature",
+          "settings": {
+            "title": "Alerte d'urgence",
+            "description": "SOS instantané vers vos proches ou nos conseillers.",
+            "icon": "🆘"
+          }
+        }
+      },
+      "block_order": ["simplicite", "autonomie", "urgence"],
+      "settings": {
+        "heading": "Pourquoi SilverLink ?",
+        "lead": "Des solutions connectées pour protéger et rassurer vos proches."
+      }
+    },
+    "showcase": {
+      "type": "product-showcase-3d",
+      "settings": {
+        "heading": "SafeWalk Pro",
+        "description": "La canne intelligente qui veille sur vos déplacements.",
+        "product_handle": "safewalk-pro",
+        "model_asset": "safewalk-pro.glb"
+      }
+    },
+    "carousel": {
+      "type": "interactive-carousel",
+      "blocks": {
+        "item1": {
+          "type": "slide",
+          "settings": {
+            "title": "GuardSense",
+            "description": "Détecteur de chute avec alertes automatiques.",
+            "link": "/products/guardsense"
+          }
+        },
+        "item2": {
+          "type": "slide",
+          "settings": {
+            "title": "MemoDose",
+            "description": "Pilulier connecté avec rappels lumineux.",
+            "link": "/products/memodose"
+          }
+        },
+        "item3": {
+          "type": "slide",
+          "settings": {
+            "title": "CareWatch",
+            "description": "Montre d'alerte grand écran et SOS immédiat.",
+            "link": "/products/carewatch"
+          }
+        }
+      },
+      "block_order": ["item1", "item2", "item3"],
+      "settings": {
+        "heading": "Nos innovations phares"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Ils nous font confiance"
+      },
+      "blocks": {
+        "tem1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Jean, 72 ans",
+            "rating": 5,
+            "text": "Installation guidée très simple, je me sens en sécurité."
+          }
+        },
+        "tem2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Lucie, aidante",
+            "rating": 5,
+            "text": "SilverLink m'aide à suivre les activités de ma maman à distance."
+          }
+        }
+      },
+      "block_order": ["tem1", "tem2"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Recevez nos conseils bienveillants",
+        "description": "Conseils, tutoriels et offres pour rester connecté avec vos proches."
+      }
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "heading": "Questions fréquentes"
+      },
+      "blocks": {
+        "faq1": {
+          "type": "faq",
+          "settings": {
+            "question": "Proposez-vous une assistance pour l'installation ?",
+            "answer": "Oui, notre équipe vous accompagne par téléphone ou visio pour chaque produit."
+          }
+        },
+        "faq2": {
+          "type": "faq",
+          "settings": {
+            "question": "Les produits sont-ils garantis ?",
+            "answer": "Chaque produit est garanti 2 ans avec extension disponible."
+          }
+        }
+      },
+      "block_order": ["faq1", "faq2"]
+    }
+  },
+  "order": ["hero", "reassurance", "categories", "featuregrid", "showcase", "carousel", "testimonials", "newsletter", "faq"]
+}

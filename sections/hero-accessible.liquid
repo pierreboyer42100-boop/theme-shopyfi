@@ -1,0 +1,67 @@
+<section class="hero-accessible" aria-labelledby="HeroAccessibleHeading">
+  <div class="hero-accessible__media">
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | image_url: width: 1600 }}" loading="lazy" alt="{{ section.settings.image.alt | default: section.settings.heading }}">
+    {% endif %}
+  </div>
+  <div class="hero-accessible__content">
+    <h1 id="HeroAccessibleHeading">{{ section.settings.heading }}</h1>
+    <p class="hero-accessible__lead">{{ section.settings.lead }}</p>
+    <div class="hero-accessible__actions">
+      <a class="btn btn--primary" href="{{ section.settings.primary_link }}">{{ section.settings.primary_label }}</a>
+      <a class="btn btn--secondary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Héros accessible",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Restez connectés, en toute simplicité."
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Texte d'accroche",
+      "default": "Des solutions connectées pensées pour accompagner les seniors dans leur quotidien."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Bouton principal",
+      "default": "Découvrir les produits"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Lien bouton principal"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Bouton secondaire",
+      "default": "Assistance téléphonique"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Lien bouton secondaire"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Héros accessible"
+    }
+  ]
+}
+{% endschema %}

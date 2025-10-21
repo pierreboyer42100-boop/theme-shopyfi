@@ -1,0 +1,80 @@
+<section class="product" itemscope itemtype="https://schema.org/Product">
+  {% render 'breadcrumbs' %}
+  <div class="product__gallery" data-product-gallery>
+    {% for media in product.media %}
+      <figure class="product__media" data-media-type="{{ media.media_type }}">
+        {{ media | image_url: width: 1400 | image_tag: loading: 'lazy', alt: media.alt | default: product.title }}
+      </figure>
+    {% endfor %}
+  </div>
+  <div class="product__summary">
+    <h1 itemprop="name">{{ product.title }}</h1>
+    <div class="product__meta">
+      {% assign rating_value = 5 %}
+      {% assign rating_count = 1 %}
+      {% if product.metafields.reviews.rating %}
+        {% assign rating_value = product.metafields.reviews.rating.value | default: 5 %}
+      {% endif %}
+      {% if product.metafields.reviews.rating_count %}
+        {% assign rating_count = product.metafields.reviews.rating_count.value | default: 1 %}
+      {% endif %}
+      {% render 'rating-stars', rating: rating_value, count: rating_count %}
+      <span class="product__sku">{{ product.sku }}</span>
+      {% if section.settings.show_stock %}
+        {% if product.selected_or_first_available_variant.available %}
+          <span class="badge badge--success">{{ 'products.stock.in_stock' | t }}</span>
+        {% else %}
+          <span class="badge badge--warning">{{ 'products.stock.out_of_stock' | t }}</span>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="product__price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      {% render 'price', product: product %}
+      <link itemprop="availability" href="https://schema.org/{% if product.selected_or_first_available_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+    </div>
+    <div class="product__description rte" itemprop="description">{{ product.description }}</div>
+    <form method="post" action="/cart/add" class="product-form" data-product-form>
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button class="btn btn--primary btn--xl" type="submit">{{ 'general.buttons.add_to_cart' | t }}</button>
+    </form>
+    <div class="product__assistance">
+      <h2>Assistance téléphonique pour l'installation</h2>
+      <p>Appelez-nous au <a href="tel:+33123456789">+33 1 23 45 67 89</a> – accompagnement pas à pas.</p>
+    </div>
+    <div class="product__steps">
+      <h2>Fonctionne en 3 étapes</h2>
+      <ol>
+        <li>Recevez votre produit configuré.</li>
+        <li>Appelez notre conseiller pour l'installation.</li>
+        <li>Profitez d'un suivi continu et rassurant.</li>
+      </ol>
+    </div>
+    <div class="product__specs">
+      <h2>Caractéristiques</h2>
+      <table>
+        <tbody>
+          <tr><th>Autonomie</th><td>{{ product.metafields.custom.autonomie | default: 'Jusqu\u2019à 7 jours' }}</td></tr>
+          <tr><th>Connectivité</th><td>{{ product.metafields.custom.connectivite | default: 'Wi-Fi + Bluetooth' }}</td></tr>
+          <tr><th>Poids</th><td>{{ product.metafields.custom.poids | default: '350 g' }}</td></tr>
+          <tr><th>Compatibilité</th><td>{{ product.metafields.custom.compatibilite | default: 'Application iOS & Android' }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="product__warning" role="note">{{ settings.medical_notice | default: 'Information : ces produits ne remplacent pas un avis médical.' }}</div>
+  </div>
+  {% render 'schema-product-jsonld', product: product %}
+</section>
+
+{% schema %}
+{
+  "name": "Produit principal",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_stock",
+      "label": "Afficher l'état du stock",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

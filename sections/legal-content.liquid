@@ -1,0 +1,31 @@
+<section class="legal" aria-labelledby="LegalHeading-{{ section.id }}">
+  <h1 id="LegalHeading-{{ section.id }}">{{ section.settings.title }}</h1>
+  <div class="legal__content rte">
+    {{ section.settings.body }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contenu légal",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Mentions légales"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Contenu",
+      "default": "<p><strong>Éditeur :</strong> SilverLink SAS – 10 rue de la Sérénité, 75000 Paris.</p><p><strong>Contact :</strong> contact@silverlink.fr – +33 1 23 45 67 89.</p><p><strong>Hébergeur :</strong> Shopify Inc., 151 O'Connor Street, Ottawa, ON, Canada.</p><p><strong>Propriété intellectuelle :</strong> Tous les contenus présents sur ce site sont la propriété de SilverLink.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mentions légales"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_stock": true
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Complétez votre tranquillité",
+        "limit": 4
+      }
+    }
+  },
+  "order": ["main", "recommendations"]
+}

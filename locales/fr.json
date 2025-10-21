@@ -1,0 +1,72 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Passer au contenu principal",
+      "increase_text": "Augmenter la taille du texte",
+      "decrease_text": "Diminuer la taille du texte",
+      "toggle_contrast": "Contraste élevé",
+      "toggle_dyslexia": "Mode dyslexie",
+      "status_updated": "Préférences d'accessibilité mises à jour."
+    },
+    "cookie": {
+      "title": "Gestion des cookies",
+      "description": "Nous utilisons des cookies pour améliorer votre expérience. Sélectionnez les catégories autorisées.",
+      "accept_all": "Tout accepter",
+      "reject_all": "Tout refuser",
+      "save": "Enregistrer mes choix",
+      "analytics": "Cookies de mesure d'audience",
+      "marketing": "Cookies marketing",
+      "required": "Cookies nécessaires"
+    },
+    "buttons": {
+      "add_to_cart": "Ajouter au panier",
+      "buy_now": "Acheter maintenant",
+      "discover": "Découvrir les produits",
+      "assist": "Assistance téléphonique",
+      "contact": "Contactez-nous",
+      "learn_more": "En savoir plus"
+    },
+    "labels": {
+      "search": "Recherche",
+      "newsletter_email": "Votre email",
+      "subscribe": "S'abonner",
+      "phone": "Téléphone",
+      "email": "E-mail",
+      "hours": "Horaires"
+    },
+    "warnings": {
+      "medical": "Information : ces produits ne remplacent pas un avis médical."
+    }
+  },
+  "products": {
+    "stock": {
+      "in_stock": "En stock",
+      "low_stock": "Stock limité",
+      "out_of_stock": "Rupture temporaire"
+    },
+    "reviews": {
+      "based_on": "Basé sur {{ count }} avis"
+    }
+  },
+  "cart": {
+    "title": "Votre panier",
+    "subtotal": "Sous-total",
+    "checkout": "Commander",
+    "empty": "Votre panier est vide pour le moment"
+  },
+  "customer": {
+    "login": {
+      "title": "Connexion",
+      "email": "Adresse email",
+      "password": "Mot de passe",
+      "forgot": "Mot de passe oublié ?",
+      "submit": "Se connecter"
+    },
+    "register": {
+      "title": "Créer un compte",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "submit": "Créer mon compte"
+    }
+  }
+}

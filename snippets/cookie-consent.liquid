@@ -1,0 +1,16 @@
+<div class="cookie-banner" role="dialog" aria-live="polite" aria-label="{{ 'general.cookie.title' | t }}" hidden data-cookie-banner>
+  <div class="cookie-banner__content">
+    <h2>{{ 'general.cookie.title' | t }}</h2>
+    <p>{{ 'general.cookie.description' | t }}</p>
+    <form class="cookie-banner__form" data-cookie-form>
+      <label><input type="checkbox" name="analytics"> {{ 'general.cookie.analytics' | t }}</label>
+      <label><input type="checkbox" name="marketing"> {{ 'general.cookie.marketing' | t }}</label>
+      <p class="cookie-banner__note">{{ 'general.cookie.required' | t }}</p>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn--secondary" data-cookie-reject>{{ 'general.cookie.reject_all' | t }}</button>
+        <button type="submit" class="btn btn--primary">{{ 'general.cookie.save' | t }}</button>
+        <button type="button" class="btn btn--ghost" data-cookie-accept>{{ 'general.cookie.accept_all' | t }}</button>
+      </div>
+    </form>
+  </div>
+</div>
