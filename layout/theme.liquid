@@ -1,0 +1,34 @@
+{%- comment -%}Flame Box - thème Shopify immersif{%- endcomment -%}
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }} | {{ shop.name }}</title>
+    <meta name="description" content="{{ shop.description | escape }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {% if settings.favicon %}
+      <link rel="icon" href="{{ settings.favicon | image_url: width: 32 }}" type="image/png">
+    {% endif %}
+    {{ settings.font_primary | font_face }}
+    {{ settings.font_secondary | font_face }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+    {{ 'theme.js' | asset_url | script_tag }}
+    {{ 'flame-animation.js' | asset_url | script_tag }}
+  </head>
+  <body class="flame-box-body">
+    <a class="skip-to-content" href="#MainContent">Passer au contenu</a>
+    <div class="flame-background" aria-hidden="true"></div>
+    <div class="site-wrapper">
+      {% section 'header' %}
+      <main id="MainContent" role="main" tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+      {% section 'footer' %}
+    </div>
+    {{ content_for_footer }}
+  </body>
+</html>

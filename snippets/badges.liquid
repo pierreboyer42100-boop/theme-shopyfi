@@ -1,0 +1,6 @@
+{%- comment -%}Badges lumineux pour les offres Flame Box{%- endcomment -%}
+{% assign badge_classes = 'badge' %}
+{% if badge_style == 'glow' %}
+  {% assign badge_classes = badge_classes | append: ' badge-glow' %}
+{% endif %}
+<span class="{{ badge_classes }}">{{ badge_text }}</span>

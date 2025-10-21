@@ -1,0 +1,47 @@
+{%- comment -%}Page produit immersive pour Flame Box{%- endcomment -%}
+<section class="product-page" aria-labelledby="product-title">
+  <div class="container product-layout">
+    <div class="product-media">
+      {% if product.featured_media %}
+        {{ product.featured_media | media_tag: class: 'featured-media', loading: 'lazy' }}
+      {% endif %}
+      {% if product.media.size > 1 %}
+        <div class="media-gallery" role="list">
+          {% for media in product.media %}
+            <div class="gallery-item" role="listitem">
+              {{ media | media_tag: class: 'gallery-media', loading: 'lazy' }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="product-details">
+      <h1 id="product-title">{{ product.title }}</h1>
+      <p class="promo-banner">{{ settings.promo_banner_text }}</p>
+      <div class="product-pricing">
+        <span class="price">{{ product.price | money }}</span>
+        {% if product.compare_at_price > product.price %}
+          <span class="compare">{{ product.compare_at_price | money }}</span>
+          {% render 'badges', badge_text: 'Promotion', badge_style: 'glow' %}
+        {% endif %}
+      </div>
+      <div class="product-description rte">
+        {{ product.description }}
+      </div>
+      <form method="post" action="/cart/add" class="product-form" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <div class="quantity-wrapper">
+          <label for="Quantity" class="visually-hidden">Quantité</label>
+          <input id="Quantity" name="quantity" type="number" min="1" value="1">
+        </div>
+        {% render 'buttons', button_text: 'Ajouter au panier', button_style: 'primary', button_type: 'submit' %}
+      </form>
+      <div class="trust-signals">
+        <p>✔️ Garantie sérénité 30 jours</p>
+        <p>🔒 Paiement 100% sécurisé</p>
+        <p>🚚 Livraison offerte actuellement</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% section 'product-info' %}

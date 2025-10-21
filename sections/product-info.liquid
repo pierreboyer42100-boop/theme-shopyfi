@@ -1,0 +1,64 @@
+{%- comment -%}Section avantages produit configurable{%- endcomment -%}
+<section class="product-info" aria-labelledby="product-info-title">
+  <div class="container">
+    <h2 id="product-info-title">{{ section.settings.heading }}</h2>
+    <div class="info-grid">
+      {% for block in section.blocks %}
+        <article class="info-card" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Pourquoi Flame Box",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Pourquoi choisir Flame Box ?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Raison",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Flamme maîtrisée"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Un feu hypnotique et sécurisé qui crée une ambiance apaisante sans fumée ni odeur."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Pourquoi Flame Box",
+      "blocks": [
+        {
+          "type": "reason"
+        },
+        {
+          "type": "reason"
+        },
+        {
+          "type": "reason"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

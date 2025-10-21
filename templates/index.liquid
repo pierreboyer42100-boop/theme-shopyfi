@@ -1,0 +1,36 @@
+{%- comment -%}Accueil Flame Box avec bénéfices et témoignages{%- endcomment -%}
+{% section 'hero' %}
+<section class="benefits" aria-labelledby="benefits-title">
+  <div class="container">
+    <h2 id="benefits-title">Les bienfaits de Flame Box</h2>
+    <div class="benefits-grid">
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">🔥</div>
+        <h3>Design Premium</h3>
+        <p>Un cube de lumière forgé pour sublimer vos espaces tout en évoquant une chaleur rassurante.</p>
+      </article>
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">🛡️</div>
+        <h3>Sécurité Totale</h3>
+        <p>Un brûleur sécurisé, testé en laboratoire, qui rassure tout en offrant la magie d'une flamme douce.</p>
+      </article>
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">🌙</div>
+        <h3>Rituel Apaisant</h3>
+        <p>Une flamme hypnotique pour calmer l'esprit et inviter à la relaxation profonde.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% section 'testimonials' %}
+<section class="cta-final" aria-labelledby="cta-final-title">
+  <div class="container">
+    <h2 id="cta-final-title">Prêt à accueillir la sérénité chez vous ?</h2>
+    <p>Le feu, réinventé pour votre bien-être. Commandez votre Flame Box et vivez une expérience sensorielle unique.</p>
+    {% render 'buttons',
+      button_text: settings.final_cta_text,
+      button_link: settings.final_cta_link,
+      button_style: 'primary'
+    %}
+  </div>
+</section>
