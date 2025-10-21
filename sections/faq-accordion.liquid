@@ -1,0 +1,78 @@
+<section class="faq" aria-labelledby="FaqHeading-{{ section.id }}" data-faq>
+  <h2 id="FaqHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  <div class="faq__items" itemscope itemtype="https://schema.org/FAQPage">
+    {% for block in section.blocks %}
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+        <button class="faq__question" aria-expanded="false">
+          <span itemprop="name">{{ block.settings.question }}</span>
+          <span class="faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq__answer" hidden itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">{{ block.settings.answer }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for block in section.blocks %}
+        {
+          "@type": "Question",
+          "name": "{{ block.settings.question | escape }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ block.settings.answer | escape }}"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ accessible",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Questions fréquentes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Comment fonctionne l'installation assistée ?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Réponse",
+          "default": "Nos conseillers vous accompagnent par téléphone étape par étape pour installer votre produit."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ accessible",
+      "blocks": [
+        {"type": "faq"},
+        {"type": "faq"},
+        {"type": "faq"}
+      ]
+    }
+  ]
+}
+{% endschema %}

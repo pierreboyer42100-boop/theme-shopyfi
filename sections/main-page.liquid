@@ -1,0 +1,30 @@
+<section class="page" aria-labelledby="PageHeading">
+  <div class="page__header">
+    <h1 id="PageHeading">{{ page.title }}</h1>
+  </div>
+  <div class="page__content rte">
+    {{ page.content }}
+  </div>
+  {% if section.settings.show_contact %}
+  <div class="page__contact">
+    <h2>Besoin d'assistance ?</h2>
+    <p>Téléphone : <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+    <p>Email : <a href="mailto:contact@silverlink.fr">contact@silverlink.fr</a></p>
+    <p>Horaires : Lundi - Dimanche 8h - 20h</p>
+  </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Page principale",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_contact",
+      "label": "Afficher le bloc contact",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+<footer class="footer-minimal" role="contentinfo">
+  <div class="footer-minimal__content">
+    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }} – SilverLink.</p>
+    <nav aria-label="Bas de page">
+      <ul>
+        <li><a href="/pages/mentions-legales">Mentions légales</a></li>
+        <li><a href="/pages/confidentialite">Confidentialité</a></li>
+        <li><a href="/pages/cgv">CGV</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pied de page minimal",
+  "settings": []
+}
+{% endschema %}

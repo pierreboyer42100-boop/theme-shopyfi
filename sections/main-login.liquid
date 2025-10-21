@@ -1,0 +1,18 @@
+<section class="customer customer--login" aria-labelledby="CustomerLoginHeading">
+  <h1 id="CustomerLoginHeading">{{ 'customer.login.title' | t }}</h1>
+  {% form 'customer_login' %}
+    <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+    <input id="CustomerEmail" type="email" name="customer[email]" required>
+    <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+    <input id="CustomerPassword" type="password" name="customer[password]" required>
+    <button class="btn btn--primary btn--xl" type="submit">{{ 'customer.login.submit' | t }}</button>
+    <a class="customer__link" href="/account/register">{{ 'customer.register.title' | t }}</a>
+  {% endform %}
+</section>
+
+{% schema %}
+{
+  "name": "Connexion client",
+  "settings": []
+}
+{% endschema %}

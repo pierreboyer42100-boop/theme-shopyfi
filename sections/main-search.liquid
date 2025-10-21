@@ -1,0 +1,39 @@
+<section class="search" aria-labelledby="SearchHeading">
+  <h1 id="SearchHeading">Recherche</h1>
+  <form action="/search" method="get" role="search" class="search__form">
+    <label class="sr-only" for="SearchInput">{{ 'general.labels.search' | t }}</label>
+    <input id="SearchInput" type="search" name="q" value="{{ search.terms }}" placeholder="{{ 'general.labels.search' | t }}" required>
+    <button class="btn btn--primary" type="submit">Rechercher</button>
+  </form>
+  {% if search.results_count > 0 %}
+    <div class="search__results" aria-live="polite">
+      <p>{{ search.results_count }} résultats</p>
+      <div class="search__grid">
+        {% for item in search.results %}
+          <article class="search-card">
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% if item.object_type == 'product' %}
+              {% render 'price', product: item %}
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <p>Aucun résultat pour "{{ search.terms }}".</p>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Recherche principale",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "label": "Afficher les options avancées",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

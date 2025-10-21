@@ -1,0 +1,22 @@
+{
+  "current": "default",
+  "presets": {
+    "default": {
+      "theme_version": "1.0.0",
+      "settings": {
+        "color_accent": "#2D6CDF",
+        "color_background": "#FFFFFF",
+        "color_text": "#111111",
+        "border_radius": 20,
+        "base_font": "system",
+        "base_font_size": 18,
+        "enable_font_controls": true,
+        "enable_accessibility_controls": true,
+        "enable_contrast": false,
+        "enable_dyslexia": false,
+        "default_title": "SilverLink – Technologie sereine pour seniors",
+        "default_description": "Découvrez des produits connectés simples et rassurants pour accompagner les seniors."
+      }
+    }
+  }
+}

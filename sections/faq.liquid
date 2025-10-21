@@ -1,0 +1,45 @@
+<section class="faq faq--minimal" aria-labelledby="FaqSimpleHeading-{{ section.id }}" data-faq>
+  <h2 id="FaqSimpleHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  <div class="faq__items" itemscope itemtype="https://schema.org/FAQPage">
+    {% for block in section.blocks %}
+      <article class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+        <button class="faq__question" aria-expanded="false">
+          <span itemprop="name">{{ block.settings.question }}</span>
+        </button>
+        <div class="faq__answer" hidden itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">{{ block.settings.answer }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ (simple)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Besoin d'aide ?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {"type": "text", "id": "question", "label": "Question", "default": "Comment contacter l'assistance ?"},
+        {"type": "textarea", "id": "answer", "label": "Réponse", "default": "Appelez-nous au +33 1 23 45 67 89 ou envoyez un email à contact@silverlink.fr."}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ (simple)",
+      "blocks": [{"type": "faq"}, {"type": "faq"}]
+    }
+  ]
+}
+{% endschema %}

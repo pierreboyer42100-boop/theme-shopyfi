@@ -1,0 +1,77 @@
+<section class="category-tiles" aria-labelledby="CategoryTilesHeading-{{ section.id }}">
+  <div class="category-tiles__heading">
+    <h2 id="CategoryTilesHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+  </div>
+  <div class="category-tiles__grid">
+    {% for block in section.blocks %}
+      <article class="category-tile" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.link }}" class="category-tile__link">
+          <div class="category-tile__image">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 800 }}" loading="lazy" alt="{{ block.settings.image.alt | default: block.settings.title }}">
+            {% endif %}
+          </div>
+          <div class="category-tile__content">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tuiles catégories",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Explorer par besoins"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tuile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Catégorie"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Description courte"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tuiles catégories",
+      "blocks": [
+        {"type": "tile"},
+        {"type": "tile"},
+        {"type": "tile"},
+        {"type": "tile"}
+      ]
+    }
+  ]
+}
+{% endschema %}

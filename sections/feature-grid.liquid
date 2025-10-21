@@ -1,0 +1,71 @@
+<section class="feature-grid" aria-labelledby="FeatureGridHeading-{{ section.id }}">
+  <div class="feature-grid__heading">
+    <h2 id="FeatureGridHeading-{{ section.id }}">{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.lead }}</p>
+  </div>
+  <div class="feature-grid__items">
+    {% for block in section.blocks %}
+      <article class="feature-grid__item" {{ block.shopify_attributes }}>
+        <span class="feature-grid__icon" aria-hidden="true">{{ block.settings.icon }}</span>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.description }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Grille de fonctionnalités",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Pourquoi SilverLink ?"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Introduction",
+      "default": "Des fonctionnalités pensées pour le confort et la sécurité des seniors."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Fonctionnalité",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icône (emoji ou texte)",
+          "default": "⚡"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Fonctionnalité"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Description de la fonctionnalité."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grille de fonctionnalités",
+      "blocks": [
+        {"type": "feature"},
+        {"type": "feature"},
+        {"type": "feature"}
+      ]
+    }
+  ]
+}
+{% endschema %}

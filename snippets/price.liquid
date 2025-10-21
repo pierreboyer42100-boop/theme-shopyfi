@@ -1,0 +1,10 @@
+{% if product %}
+  <span class="price" itemprop="price" content="{{ product.selected_or_first_available_variant.price | divided_by: 100.0 }}">
+    {{ product.selected_or_first_available_variant.price | money_with_currency }}
+  </span>
+  {% if product.compare_at_price_max > product.price %}
+    <span class="price price--compare">{{ product.compare_at_price_max | money_with_currency }}</span>
+  {% endif %}
+{% elsif price %}
+  <span class="price">{{ price | money_with_currency }}</span>
+{% endif %}

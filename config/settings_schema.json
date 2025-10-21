@@ -1,129 +1,200 @@
 [
   {
-    "name": "Identité Flame Box",
+    "name": "Branding",
     "settings": [
       {
         "type": "image_picker",
-        "id": "logo",
+        "id": "logo_image",
         "label": "Logo principal"
       },
       {
-        "type": "image_picker",
-        "id": "favicon",
-        "label": "Favicon"
+        "type": "color",
+        "id": "color_accent",
+        "label": "Couleur d'accent",
+        "default": "#2D6CDF"
       },
-      {
-        "type": "text",
-        "id": "promo_banner_text",
-        "label": "Texte de la bannière promo",
-        "default": "Livraison gratuite – Offre d’automne 🔥"
-      }
-    ]
-  },
-  {
-    "name": "Palette & Typographie",
-    "settings": [
       {
         "type": "color",
         "id": "color_background",
         "label": "Couleur de fond",
-        "default": "#070402"
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Couleur du texte",
-        "default": "#f6f1ed"
+        "default": "#111111"
       },
       {
-        "type": "color",
-        "id": "color_accent",
-        "label": "Couleur accent",
-        "default": "#ff6a1a"
+        "type": "range",
+        "id": "border_radius",
+        "label": "Rayon des bords",
+        "min": 8,
+        "max": 32,
+        "step": 1,
+        "unit": "px",
+        "default": 20
       },
       {
-        "type": "font_picker",
-        "id": "font_primary",
+        "type": "checkbox",
+        "id": "enable_transparent_header",
+        "label": "Activer le header flottant",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Typographie",
+    "settings": [
+      {
+        "type": "select",
+        "id": "base_font",
         "label": "Police principale",
-        "default": "poppins_n4"
+        "default": "system",
+        "options": [
+          { "value": "system", "label": "Système (SF Pro / Helvetica / Arial)" },
+          { "value": "open_sans", "label": "Open Sans" },
+          { "value": "source_sans", "label": "Source Sans Pro" },
+          { "value": "dyslexic", "label": "OpenDyslexic" }
+        ]
       },
       {
-        "type": "font_picker",
-        "id": "font_secondary",
-        "label": "Police secondaire",
-        "default": "montserrat_n6"
+        "type": "range",
+        "id": "base_font_size",
+        "label": "Taille de police par défaut",
+        "min": 16,
+        "max": 22,
+        "step": 1,
+        "unit": "px",
+        "default": 18
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_font_controls",
+        "label": "Afficher les contrôles A+/A-",
+        "default": true
       }
     ]
   },
   {
-    "name": "Hero & CTA",
+    "name": "Accessibilité",
     "settings": [
       {
-        "type": "text",
-        "id": "hero_eyebrow",
-        "label": "Texte d'accroche",
-        "default": "Apprivoisez le feu"
+        "type": "checkbox",
+        "id": "enable_contrast",
+        "label": "Activer le mode contraste élevé",
+        "default": false
       },
       {
-        "type": "textarea",
-        "id": "hero_heading",
-        "label": "Titre Hero",
-        "default": "Apprivoisez le feu, ressentez la paix."
+        "type": "checkbox",
+        "id": "enable_dyslexia",
+        "label": "Activer le mode dyslexie par défaut",
+        "default": false
       },
       {
-        "type": "textarea",
-        "id": "hero_text",
-        "label": "Texte Hero",
-        "default": "Flame Box diffuse une flamme douce qui invite à la détente et à la contemplation."
-      },
-      {
-        "type": "text",
-        "id": "hero_cta_text",
-        "label": "Texte du bouton Hero",
-        "default": "Découvrir la Flame Box"
-      },
-      {
-        "type": "url",
-        "id": "hero_cta_link",
-        "label": "Lien du bouton Hero",
-        "default": "/products/flame-box"
-      },
-      {
-        "type": "text",
-        "id": "final_cta_text",
-        "label": "Texte du bouton final",
-        "default": "Commander maintenant"
-      },
-      {
-        "type": "url",
-        "id": "final_cta_link",
-        "label": "Lien du bouton final",
-        "default": "/cart"
+        "type": "checkbox",
+        "id": "enable_accessibility_controls",
+        "label": "Afficher le panneau d'accessibilité",
+        "default": true
       }
     ]
   },
   {
-    "name": "Réseaux sociaux",
+    "name": "Composants",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_hero",
+        "label": "Afficher la section héros immersive",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_category_tiles",
+        "label": "Afficher les tuiles catégories",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_reassurance",
+        "label": "Afficher la barre de rassurance",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_testimonials",
+        "label": "Afficher les témoignages",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_faq",
+        "label": "Afficher la FAQ",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Rassurance",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "reassurance_items",
+        "label": "Liste des messages de rassurance (séparés par des retours à la ligne)",
+        "default": "Paiement sécurisé\nRetours 30 jours\nSAV français 7j/7\nLivraison 48-72h"
+      }
+    ]
+  },
+  {
+    "name": "Légal",
     "settings": [
       {
         "type": "url",
-        "id": "social_facebook",
-        "label": "Facebook"
+        "id": "url_cgv",
+        "label": "Lien vers les CGV"
       },
       {
         "type": "url",
-        "id": "social_instagram",
-        "label": "Instagram"
+        "id": "url_privacy",
+        "label": "Lien vers la Politique de confidentialité"
       },
       {
         "type": "url",
-        "id": "social_youtube",
-        "label": "YouTube"
+        "id": "url_mentions",
+        "label": "Lien vers les Mentions légales"
       },
       {
         "type": "url",
-        "id": "social_tiktok",
-        "label": "TikTok"
+        "id": "url_returns",
+        "label": "Lien vers la Politique de retours"
+      },
+      {
+        "type": "textarea",
+        "id": "medical_notice",
+        "label": "Texte d'avertissement médical",
+        "default": "Information : ces produits ne remplacent pas un avis médical."
+      }
+    ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      {
+        "type": "text",
+        "id": "default_title",
+        "label": "Titre par défaut",
+        "default": "SilverLink – Technologie sereine pour seniors"
+      },
+      {
+        "type": "textarea",
+        "id": "default_description",
+        "label": "Description par défaut",
+        "default": "Produits connectés simples et sécurisés pour accompagner les seniors au quotidien."
+      },
+      {
+        "type": "image_picker",
+        "id": "social_image",
+        "label": "Image sociale par défaut"
       }
     ]
   }

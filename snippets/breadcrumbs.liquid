@@ -1,0 +1,9 @@
+<nav class="breadcrumbs" aria-label="Fil d'Ariane">
+  <ol>
+    <li><a href="/">Accueil</a></li>
+    {% if template contains 'collection' and collection %}
+      <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+    {% endif %}
+    <li aria-current="page">{{ product.title | default: page_title }}</li>
+  </ol>
+</nav>

@@ -1,0 +1,73 @@
+{% if section.settings.enable_section != false and settings.show_hero %}
+<section class="hero-3d" aria-labelledby="Hero3dHeading" data-section-id="{{ section.id }}">
+  <div class="hero-3d__background" data-background-canvas></div>
+  <div class="hero-3d__content">
+    <h1 id="Hero3dHeading">{{ section.settings.heading }}</h1>
+    <p class="hero-3d__subheading">{{ section.settings.subheading }}</p>
+    <div class="hero-3d__actions">
+      {% render 'button-3d', label: section.settings.primary_label, url: section.settings.primary_link, variant: 'primary' %}
+      {% render 'button-3d', label: section.settings.secondary_label, url: section.settings.secondary_link, variant: 'secondary' %}
+    </div>
+  </div>
+  <div class="hero-3d__model" data-hero-model data-model="{{ section.settings.model_asset }}"></div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Héros immersif 3D",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_section",
+      "label": "Afficher la section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Restez connectés, en toute simplicité."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Sous-titre",
+      "default": "Des produits connectés pensés pour la tranquillité des seniors."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Libellé bouton principal",
+      "default": "Découvrir les produits"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Lien bouton principal"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Libellé bouton secondaire",
+      "default": "Assistance téléphonique"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Lien bouton secondaire"
+    },
+    {
+      "type": "text",
+      "id": "model_asset",
+      "label": "Identifiant du modèle 3D (GLB)",
+      "default": "safewalk-pro.glb"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Héros immersif 3D"
+    }
+  ]
+}
+{% endschema %}
